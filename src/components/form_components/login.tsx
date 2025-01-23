@@ -1,5 +1,7 @@
 "use client";
 import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -20,23 +22,19 @@ const formSchema = z.object({
 });
 
 export default function MyForm() {
-  // Correctly calling useForm inside the component
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "", // Default value for email
-      password: "", // Default value for password
+      email: "",
+      password: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      toast("Event has been created", {
-        description: "Sunday, December 03, 2023 at 9:00 AM",
-        action: {
-          label: "Undo",
-          onClick: () => console.log("Undo"),
-        },
+      const { email, password } = values;
+      toast("User has been Found!", {
+        description: `Email: ${email} Password: ${password}`,
       });
       console.log(values);
     } catch (error) {
@@ -51,6 +49,7 @@ export default function MyForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8 max-w-3xl mx-auto py-10"
       >
+        <Toaster />
         <FormField
           control={form.control}
           name="email"

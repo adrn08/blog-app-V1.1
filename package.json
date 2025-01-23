@@ -36,7 +36,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
+    "mode-watcher": "^0.5.0",
     "postcss": "^8",
+    "svelte-sonner": "^0.3.28",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

@@ -1,6 +1,5 @@
 "use client";
 import { toast } from "sonner";
-import { Toaster } from "@/components/ui/sonner";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -49,7 +48,6 @@ export default function MyForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8 max-w-3xl mx-auto py-10"
       >
-        <Toaster />
         <FormField
           control={form.control}
           name="email"
